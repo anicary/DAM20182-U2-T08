@@ -1,0 +1,7 @@
+{
+  "name": "DAM20182-MONDRAGON-U2-T08",
+  "integrations": {
+    "cordova": {}
+  },
+  "type": "ionic-angular"
+}
