@@ -1,0 +1,19 @@
+<ion-header>
+  <ion-navbar color="dark">
+    <ion-title>
+      CONSULTAR
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+<ion-content padding>
+   <ion-item style="font-size:90%" ion-item *ngFor="let persona of personas">
+    {{persona.rfc}}
+    {{persona.name}}
+    {{persona.calle}}
+    {{persona.callenumero}}
+    {{persona.name}}
+    {{persona.telefono}}
+    {{persona.email}}
+  
+  </ion-item>
+</ion-content>
