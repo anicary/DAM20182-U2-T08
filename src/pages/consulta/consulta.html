@@ -6,14 +6,14 @@
   </ion-navbar>
 </ion-header>
 <ion-content padding>
-   <ion-item style="font-size:90%" ion-item *ngFor="let persona of personas">
-    {{persona.rfc}}
-    {{persona.name}}
-    {{persona.calle}}
-    {{persona.callenumero}}
-    {{persona.name}}
-    {{persona.telefono}}
-    {{persona.email}}
-  
+  <ion-item style="font-size:90%" ion-item *ngFor="let persona of personas">
+    <ion-card>
+      <ion-card-header>
+      {{persona.name}}
+      </ion-card-header>
+      <ion-card-content>
+      {{persona.rfc}}
+      </ion-card-content>
+    </ion-card>
   </ion-item>
 </ion-content>

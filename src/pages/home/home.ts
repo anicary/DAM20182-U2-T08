@@ -13,9 +13,9 @@ export class HomePage {
   validation_messages = {
     'rfc': [
       { type: 'required', message: 'ingrese un RFC correcto' },
-      /*{ type: 'pattern', message: 'Ingresar un RFC Valido.' },*/
-      { type: 'minlength', message: 'debe contener max 13 caracteres' },
-      { type: 'maxlength', message: 'debe contener max 13 caracteres' }
+      { type: 'pattern', message: 'Se requiere un  RFC Valido.' },
+      { type: 'minlength', message: 'debe contener minimo 12 caracteres' },
+      { type: 'maxlength', message: 'debe contener maximo 13 caracteres' }
     ],
     'name': [
       { type: 'required', message: 'Se requiere un nombre o razon ' },
@@ -24,17 +24,18 @@ export class HomePage {
       { type: 'required', message: 'Se requiere una calle ' },
     ],
     'callenumero': [
-      { type: 'required', message: 'Se requiere una calle ' },
+      { type: 'required', message: 'Se requiere numero de calle ' },
     ],
     'telefono': [
-      { type: 'required', message: 'Se requiere una calle ' },
+      { type: 'required', message: 'Se requiere un telefono ' },
       { type: 'minlength', message: 'debe contener max 13 caracteres' }
     ],
-    'email': [
-      { type: 'required', message: 'Se requiere una calle ' },
+    'emailc': [
+      { type: 'required', message: 'Se requiere un correo ' },
+      { type: 'pattern', message: 'Se requiere un correo valido' }
     ],
     'activo': [
-      { type: 'required', message: 'Se requiere una calle ' },
+      { type: 'required', message: 'seleccione la opcion' },
     ]
   };
   constructor(
@@ -47,9 +48,9 @@ export class HomePage {
     this.validations_form = this.formBuilder.group({
       rfc: new FormControl('', Validators.compose([
         Validators.required,
-        Validators.minLength(13),
+        Validators.minLength(12),
         Validators.maxLength(13),
-        /*Validators.pattern('/^[a-zA-Z]{3,4}(\d{6})((\D|\d){2,3})?$/')*/
+        Validators.pattern(/^([A-Z]{3,4})?(?:-?)?(\d{2}(?:0[1-9]|1[0-2])(?:0[1-9]|[12]\d|3[01]))?(?:-?)?([A-Z\d]{2})([A\d])$/)
       ])),
       name: new FormControl('', Validators.compose([
         Validators.required
@@ -64,11 +65,12 @@ export class HomePage {
         Validators.required,
         Validators.minLength(10),
       ])),
-      email: new FormControl('', Validators.compose([
-        Validators.required
+      emailc: new FormControl('', Validators.compose([
+        Validators.required,
+        Validators.pattern("^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]+)*@[A-Za-z0-9-]+(\\.[A-Za-z0-9]+)*(\\.[A-Za-z]{2,})$"),
       ])),
       activo: new FormControl('', Validators.compose([
-          Validators.required
+        Validators.required
       ]))
     });
   }

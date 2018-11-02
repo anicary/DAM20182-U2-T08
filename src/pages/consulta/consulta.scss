@@ -1,3 +1,8 @@
-page-about {
-
+page-consulta {
+  .label-md {
+      margin: 0px !important;
+  }
+  ion-app.md [padding] .scroll-content {
+     padding: 0px !important;
+}
 }
