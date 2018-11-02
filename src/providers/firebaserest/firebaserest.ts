@@ -47,7 +47,7 @@ export class FirebaserestProvider {
           calle: value.calle,
           callenumero: value.callenumero,
           telefono: value.telefono,
-          email: value.emailc,
+          email: value.email,
           activo: value.activo,
         })
         .then(
