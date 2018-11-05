@@ -1,7 +1,9 @@
 import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
+import {AlertController} from 'ionic-angular';
 import { FirebaserestProvider } from '../../providers/firebaserest/firebaserest';
 import { Validators, FormBuilder, FormGroup, FormControl } from '@angular/forms';
+
 
 @Component({
   selector: 'page-home',
@@ -25,10 +27,12 @@ export class HomePage {
     ],
     'callenumero': [
       { type: 'required', message: 'Se requiere numero de calle ' },
+      { type: 'pattern', message: 'Se requiere un numero Valido.' }
     ],
     'telefono': [
       { type: 'required', message: 'Se requiere un telefono ' },
-      { type: 'minlength', message: 'debe contener min 10 caracteres' }
+      { type: 'minlength', message: 'debe contener min 7 caracteres' },
+      { type: 'pattern', message: 'Se requiere un telefono Valido.' }
     ],
     'emailc': [
       { type: 'required', message: 'Se requiere un correo ' },
@@ -39,7 +43,7 @@ export class HomePage {
     ]
   };
   constructor(
-    public navCtrl: NavController,
+    public navCtrl: NavController,public alertCtrl: AlertController,
     private db: FirebaserestProvider,
     private formBuilder: FormBuilder
   ) {
@@ -59,11 +63,13 @@ export class HomePage {
         Validators.required
       ])),
       callenumero: new FormControl('', Validators.compose([
-        Validators.required
+        Validators.required,
+        Validators.pattern("^[0-9]*$")
       ])),
       telefono: new FormControl('', Validators.compose([
         Validators.required,
-        Validators.minLength(10),
+        Validators.minLength(7),
+        Validators.pattern("^[0-9]*$")
       ])),
       emailc: new FormControl('', Validators.compose([
         Validators.required,
@@ -77,5 +83,13 @@ export class HomePage {
   agregarPersona(valor){
     console.log(valor);
     this.db.agregarPersona(valor);
+  }
+  showAlert() {
+    const alert = this.alertCtrl.create({
+      title: 'ATENCION',
+      subTitle: 'SE AGREGARON LOS CAMPOS CON EXITO',
+      buttons: ['OK']
+    });
+    alert.present();
   }
 }

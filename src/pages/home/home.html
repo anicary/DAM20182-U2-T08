@@ -83,6 +83,6 @@
       </ng-container>
     </div>
     <br>
-    <button ion-button type="submit" [disabled]="!validations_form.valid"   block>AGREGAR</button>
+    <button ion-button type="submit" [disabled]="!validations_form.valid" block (click)="showAlert()">AGREGAR</button>
   </form>
 </ion-content>
