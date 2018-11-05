@@ -15,9 +15,19 @@ export class ConsultaPage {
     this.db.obtenerPersonas()
     .then(personas => {
       this.personas = personas;
+      console.log('Contructor');
       console.log(this.personas);
-    })
+    });
 
+  }
+
+  ionViewDidEnter() {
+    this.db.obtenerPersonas()
+    .then(personas => {
+      this.personas = personas;
+      console.log('onViewDidEnter');
+      console.log(this.personas);
+    });
   }
 
 }

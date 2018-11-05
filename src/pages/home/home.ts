@@ -28,7 +28,7 @@ export class HomePage {
     ],
     'telefono': [
       { type: 'required', message: 'Se requiere un telefono ' },
-      { type: 'minlength', message: 'debe contener max 13 caracteres' }
+      { type: 'minlength', message: 'debe contener min 10 caracteres' }
     ],
     'emailc': [
       { type: 'required', message: 'Se requiere un correo ' },

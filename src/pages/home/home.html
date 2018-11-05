@@ -40,7 +40,7 @@
     </div>
     <ion-item>
       <ion-label floating color="primary">#</ion-label>
-      <ion-input type="text" formControlName="callenumero" class="form-controll" required></ion-input>
+      <ion-input type="number" formControlName="callenumero" class="form-controll" required></ion-input>
     </ion-item>
     <div class="validation-errors">
       <ng-container *ngFor="let validation of validation_messages.callenumero">
@@ -51,7 +51,7 @@
     </div>
     <ion-item>
       <ion-label floating color="primary">telefono</ion-label>
-      <ion-input type="text" formControlName="telefono" class="form-control" required></ion-input>
+      <ion-input type="number" formControlName="telefono" class="form-control" required></ion-input>
     </ion-item>
     <div class="validation-errors">
       <ng-container *ngFor="let validation of validation_messages.telefono">
